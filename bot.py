@@ -1,8 +1,5 @@
 import telebot
-import random
 import sqlite3
-import schedule
-import time
 
 bot = telebot.TeleBot('1757637459:AAFh3jharjAWgnFEoxekM_EuGixtSXwZCuw')
 
@@ -56,10 +53,3 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, 'Чавось?')
 
 bot.polling(none_stop=True)
-
-
-# Следим за графиком и отправляем рассылки
-print('Время запуска рассылки по графику: ', h, ':', m, ':', s, ', ', w, sep='')
-while True:
-    schedule.run_pending()
-    time.sleep(1)
